@@ -1,9 +1,14 @@
 package com.qvolver.qvolver.web;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.qvolver.qvolver.models.Event;
+import com.qvolver.qvolver.models.User;
 
+import java.sql.Array;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -14,6 +19,8 @@ import java.util.List;
 public class QvolverApi {
 
     static QvolverApi instance;
+    private MockResponse mockResponse;
+    private Gson gson;
 
     public static QvolverApi getApi(){
         if(instance == null){
@@ -22,14 +29,19 @@ public class QvolverApi {
         return instance;
     }
 
-    public List<Event> getUserEvents(String userId){
-        List<Event> events = new ArrayList<>();
-        Event event1 = new Event("League of Legends","FWOTD","First Win of the Day", new Date(), new Date());
-        Event event2 = new Event("Fate Grand Order","Valentines","Valentine's Event", new Date(), new Date());
-        Event event3 = new Event("PUBG","Crate Reset","Crate Availability Rollover", new Date(), new Date());
-        events.add(event1);
-        events.add(event2);
-        events.add(event3);
-        return events;
+    private QvolverApi(){
+        this.mockResponse = new MockResponse();
+        this.gson = new GsonBuilder().create();
+    }
+
+    public User getUser(String userId){
+        String response = mockResponse.getUser();
+        return gson.fromJson(response,User.class);
+    }
+
+    public List<Event> getUserEvents(String userId) {
+        String response = mockResponse.getUserEvents();
+        System.out.println("Getting User events");
+        return Arrays.asList(gson.fromJson(response, Event[].class));
     }
 }

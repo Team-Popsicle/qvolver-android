@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager manager = this.getFragmentManager();
         switch (position){
             case 1:
-                System.out.println("Starting switch to 1");
                 manager.beginTransaction().replace(R.id.main_fragment_container, new MyEventsListFragment()).commit();
                 break;
         }

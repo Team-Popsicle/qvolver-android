@@ -1,5 +1,7 @@
 package com.qvolver.qvolver.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 
 /**
@@ -8,12 +10,39 @@ import java.util.Date;
 
 public class Event {
 
-    public String getGame() {
-        return game;
+    @SerializedName("name")
+    private String gameId;
+
+    @SerializedName("event_name")
+    private String eventName;
+
+    @SerializedName("Description")
+    private String eventDescription;
+
+    @SerializedName("Event_start")
+    private long startDate;
+
+    @SerializedName("Event_end")
+    private long endDate;
+
+    public Event(){
+
     }
 
-    public void setGame(String game) {
-        this.game = game;
+    public Event(String gameId, String eventName, String eventDescription, long startDate, long endDate){
+        this.gameId = gameId;
+        this.eventName = eventName;
+        this.eventDescription = eventDescription;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
+
+    public String getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(String gameId) {
+        this.gameId = gameId;
     }
 
     public String getEventName() {
@@ -32,37 +61,19 @@ public class Event {
         this.eventDescription = eventDescription;
     }
 
-    public Date getStartDate() {
+    public long getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(long startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public long getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-
-    private String game;
-    private String eventName;
-    private String eventDescription;
-    private Date startDate;
-    private Date endDate;
-
-    public Event(){
-
-    }
-
-    public Event(String game, String eventName, String eventDescription, Date startDate, Date endDate){
-        this.game = game;
-        this.eventName = eventName;
-        this.eventDescription = eventDescription;
-        this.startDate = startDate;
+    public void setEndDate(long endDate) {
         this.endDate = endDate;
     }
 

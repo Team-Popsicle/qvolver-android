@@ -29,7 +29,6 @@ public class MyEventsListFragment extends ListFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        System.out.println("Creating fragment view");
         List<Event> events = getEvents();
         MyEventsListAdapter adapter = new MyEventsListAdapter(getContext(), events);
         setListAdapter(adapter);

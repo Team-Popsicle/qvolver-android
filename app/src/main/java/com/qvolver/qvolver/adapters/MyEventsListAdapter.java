@@ -54,10 +54,10 @@ public class MyEventsListAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.list_item_event, parent, false);
 
             viewHolderItem = new EventViewHolderItem();
-            viewHolderItem.container = (RelativeLayout) convertView.findViewById(R.id.item_event_container);
-            viewHolderItem.eventName = (TextView) convertView.findViewById(R.id.item_event_name);
-            viewHolderItem.eventDescription = (TextView) convertView.findViewById(R.id.item_event_description);
-            viewHolderItem.eventGame = (TextView) convertView.findViewById(R.id.item_event_game);
+            viewHolderItem.container = convertView.findViewById(R.id.item_event_container);
+            viewHolderItem.eventName = convertView.findViewById(R.id.item_event_name);
+            viewHolderItem.eventDescription = convertView.findViewById(R.id.item_event_description);
+            viewHolderItem.eventGame = convertView.findViewById(R.id.item_event_game);
             viewHolderItem.position = position;
 
             convertView.setTag(viewHolderItem);
@@ -68,7 +68,7 @@ public class MyEventsListAdapter extends BaseAdapter {
         Event event = this.eventList.get(position);
         viewHolderItem.eventName.setText(event.getEventName());
         viewHolderItem.eventDescription.setText(event.getEventDescription());
-        viewHolderItem.eventGame.setText(event.getGame());
+        viewHolderItem.eventGame.setText(event.getGameId());
 
         return convertView;
     }
