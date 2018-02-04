@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_event_container"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/list_item_event_height"
+    android:padding="@dimen/list_item_event_margin">
+
+    <TextView
+        android:id="@+id/item_event_name"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_item_event_h1"
+        android:layout_marginBottom="@dimen/list_item_event_margin"
+        android:textSize="@dimen/list_item_event_text_h1"/>
+
+    <TextView
+        android:id="@+id/item_event_description"
+        android:layout_below="@id/item_event_name"
+        android:layout_alignParentStart="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_item_event_h2"
+        android:textSize="@dimen/list_item_event_text_h2" />
+
+    <TextView
+        android:id="@+id/item_event_game"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_item_event_h1"
+        android:textSize="@dimen/list_item_event_text_h1"
+        android:textAlignment="viewEnd"/>
+
+</RelativeLayout>
